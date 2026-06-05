@@ -1,7 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_manager/screens/new_task_screen.dart';
+import 'package:task_manager/screens/sign_up_screen.dart';
 import 'package:task_manager/widget/screen_bachground.dart';
 
 import '../utils/app_color.dart';
+import 'forget_password_email_verification.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -35,19 +39,26 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             SizedBox(height: 25,),
-            FilledButton(onPressed: (){}, child: Icon(Icons.arrow_circle_right)),
+            FilledButton(onPressed: (){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> NewTaskScreen()));
+            }, child: Icon(Icons.arrow_circle_right)),
             SizedBox(height: 55,),
             Center(
               child: Column(
                 children: [
-                  TextButton(onPressed: (){}, child: Text('Forget Password ?',style: TextStyle(color: Colors.grey),)),
+                  TextButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> ForgetPasswordEmailVerification()));
+                  }, child: Text('Forget Password ?',style: TextStyle(color: Colors.grey),)),
                   RichText(text: TextSpan(
                    text: "Don't have account ? ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),
                     children: [
                       TextSpan(
-                        text: 'Sign up',style: TextStyle(
-                        color: AppColor.Pcolor
-                      )
+                        text: 'Sign Up',style: TextStyle(
+                        color: AppColor.Pcolor,
+                          fontWeight: FontWeight.bold
+                      ),recognizer: TapGestureRecognizer()..onTap = (){
+                          Navigator.push(context,MaterialPageRoute(builder:  (context)=> SignUpScreen()));
+                      }
                       )
                     ]
                   )
