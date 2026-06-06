@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_manager/screens/main_nav_screen.dart';
 import 'package:task_manager/screens/new_task_screen.dart';
 import 'package:task_manager/screens/sign_up_screen.dart';
 import 'package:task_manager/widget/screen_bachground.dart';
@@ -40,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: 25,),
             FilledButton(onPressed: (){
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> NewTaskScreen()));
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> MainNavScreen()));
             }, child: Icon(Icons.arrow_circle_right)),
             SizedBox(height: 55,),
             Center(
